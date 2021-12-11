@@ -1,5 +1,6 @@
 rootProject.name = 'service-monitor'
 
 include 'service-crud'
+include 'service-poller'
 include 'infrastructure'
 
