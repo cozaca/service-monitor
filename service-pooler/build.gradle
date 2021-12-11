@@ -11,14 +11,14 @@ repositories {
 
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
-    implementation 'io.quarkus:quarkus-hibernate-reactive-panache'
-    implementation 'io.quarkus:quarkus-hibernate-validator'
-    implementation 'io.quarkus:quarkus-smallrye-openapi'
-    implementation 'io.quarkus:quarkus-arc'
-    implementation 'io.quarkus:quarkus-resteasy-reactive'
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-hibernate-reactive-panache:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-hibernate-validator:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-smallrye-openapi:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-arc:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-resteasy-reactive:2.5.0.Final'
+    testImplementation 'io.quarkus:quarkus-junit5:2.5.0.Final'
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
 }
 
 group 'com.acozac'
