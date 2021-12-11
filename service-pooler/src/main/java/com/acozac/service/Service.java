@@ -3,6 +3,7 @@ package com.acozac.service;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 
 @Entity
@@ -12,6 +13,7 @@ public class Service extends PanacheEntity
     @Size(min = 3, max = 50)
     public String name;
     @NotNull
+    @URL(protocol = "http")
     public String url;
     public String status;
     public String creationTime;

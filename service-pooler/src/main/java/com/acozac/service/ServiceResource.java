@@ -45,6 +45,23 @@ public class ServiceResource
         return Service.listAll();
     }
 
+    @Operation(summary = "Returns a service for a given id")
+    @GET
+    @Path("/{id}")
+    @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Service.class)))
+    @APIResponse(responseCode = "204", description = "The service is not found for a given identifier")
+    public Uni<Response> getService(@RestPath Long id)
+    {
+        return Service.findById(id)
+            .map(ser -> {
+                if(ser != null)
+                {
+                    return Response.ok(ser).build();
+                }
+                return Response.noContent().build();
+            });
+    }
+
     @Operation(summary = "Register a valid service")
     @POST
     @APIResponse(responseCode = "201", description = "Service registered with URI ", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
@@ -70,6 +87,7 @@ public class ServiceResource
                 s.name = service.name;
                 s.url = service.url;
                 s.status = service.status;
+                s.creationTime = service.creationTime;
                 return s;
             })
             .map(s -> {
