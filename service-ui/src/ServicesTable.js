@@ -2,13 +2,13 @@ function getValues() {
     const name = document.querySelector("input[name=name]").value;
     const url = document.querySelector("input[name=url]").value;
     const status = document.querySelector("input[name=status]").value;
-    const creationTime = document.querySelector("input[name=creationTime]").value;
+   // const creationTime = document.querySelector("input[name=creationTime]").value;
     
     const services = {
       name,
       url,
       status,
-      creationTime
+    //  creationTime
     };
     return services;
   }
@@ -33,7 +33,7 @@ function getValues() {
           {services.map((service, index) => (
             <tr key={index}>
               <td>{service.name}</td>
-              <td><a target="_blank" href={service.url}>Github</a></td>
+              <td><a target="_blank" href={service.url}>{service.url}</a></td>
               <td>{service.status}</td>
               <td>{service.creationTime}</td>
               <td>
@@ -49,6 +49,7 @@ function getValues() {
           <tr>
             <td><input type="text" required name="name" placeholder="enter Service name" /></td>
             <td><input type="text" required name="url" placeholder="enter Service URL" /></td>
+            <td><input type="text" required name="status" placeholder="Change service status" /></td>
             <td><button type="submit">Save</button></td>
           </tr>
         </tfoot>

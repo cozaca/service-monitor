@@ -64,7 +64,6 @@ public class ServiceResourceTest
         service.name = name;
         service.url = url;
         service.status = "VALID";
-        service.creationTime = "20211112";
 
         given()
             .body(service)
@@ -105,7 +104,6 @@ public class ServiceResourceTest
         service.name = "My Service";
         service.url = "http://myservice:2020";
         service.status = "VALID";
-        service.creationTime = "20211112";
 
         String location = given()
             .body(service)
@@ -130,8 +128,7 @@ public class ServiceResourceTest
             .statusCode(OK.getStatusCode())
             .body("name", Is.is("My Service"))
             .body("url", Is.is("http://myservice:2020"))
-            .body("status", Is.is("VALID"))
-            .body("creationTime", Is.is("20211112"));
+            .body("status", Is.is("VALID"));
 
         List<Service> heroes = get("/api/services").then()
             .statusCode(OK.getStatusCode())
@@ -148,7 +145,6 @@ public class ServiceResourceTest
         service.name = "New name";
         service.url = "http:mynewurl:8785";
         service.status = "invalid";
-        service.creationTime = "21211111";
 
         given()
             .body(service)
@@ -161,8 +157,7 @@ public class ServiceResourceTest
             .header(CONTENT_TYPE, APPLICATION_JSON)
             .body("name", Is.is("New name"))
             .body("url", Is.is("http:mynewurl:8785"))
-            .body("status", Is.is("invalid"))
-            .body("creationTime", Is.is("21211111"));
+            .body("status", Is.is("invalid"));
 
         List<Service> services = get("/api/services").then()
             .statusCode(OK.getStatusCode())
@@ -173,7 +168,8 @@ public class ServiceResourceTest
 
     @Test
     @Order(4)
-    void shouldRemoveAnItem() {
+    void shouldRemoveAnItem()
+    {
         given()
             .pathParam("id", serviceId)
             .when().delete("/api/services/{id}")

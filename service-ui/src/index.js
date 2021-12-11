@@ -28,7 +28,7 @@ const servicesMdl = store => next => action => {
     case 'SERVICES_ADD': {
       const service = action.service;
       fetch("http://localhost:8081/api/services", {
-        method: "PUT",
+        method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
