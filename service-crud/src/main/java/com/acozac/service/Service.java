@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.URL;
-import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
 public class Service extends PanacheEntity
@@ -16,11 +16,11 @@ public class Service extends PanacheEntity
     @Size(min = 3, max = 50)
     public String name;
     @NotNull
-    @URL(protocol = "http")
+    @URL(protocol = "https")
     public String url;
     public String status;
     @CreationTimestamp
-    @Column(name = "creationTime", updatable = false, insertable = false)
+    @Column(name = "creationtime", updatable = false)
     public Timestamp creationTime;
 
     @Override

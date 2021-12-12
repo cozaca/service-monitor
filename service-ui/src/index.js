@@ -38,13 +38,15 @@ const servicesMdl = store => next => action => {
         .then(r => {
           if (r.success) {
             service.id = r.id;
+           
             store.dispatch({ type: 'SERVICES_ADDED', service });
           }
+          console.warn(r);
         });
       break;
     }
     case 'SERVICES_REMOVE': {
-      fetch("http://localhost:8081/api/services/{id}", {
+      fetch("http://localhost:8081/api/services/" + action.id, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"

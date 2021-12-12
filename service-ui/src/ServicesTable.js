@@ -1,13 +1,13 @@
 function getValues() {
     const name = document.querySelector("input[name=name]").value;
     const url = document.querySelector("input[name=url]").value;
-    const status = document.querySelector("input[name=status]").value;
+   // const status = document.querySelector("input[name=status]").value;
    // const creationTime = document.querySelector("input[name=creationTime]").value;
     
     const services = {
       name,
       url,
-      status,
+ //     status,
     //  creationTime
     };
     return services;
@@ -40,7 +40,6 @@ function getValues() {
                 <a href="#" className="delete-row" onClick={e => {
                   onDelete(service.id);
                 }}>&#10006;</a>
-                <a href="#" className="edit-row" data-id="{service.id}">&#9998;</a>
               </td>
             </tr>
           ))}
@@ -49,7 +48,6 @@ function getValues() {
           <tr>
             <td><input type="text" required name="name" placeholder="enter Service name" /></td>
             <td><input type="text" required name="url" placeholder="enter Service URL" /></td>
-            <td><input type="text" required name="status" placeholder="Change service status" /></td>
             <td><button type="submit">Save</button></td>
           </tr>
         </tfoot>

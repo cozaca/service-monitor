@@ -10,13 +10,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.quarkus:quarkus-reactive-pg-client'
+    implementation 'io.quarkus:quarkus-scheduler'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson:2.5.0.Final'
-    implementation 'io.quarkus:quarkus-hibernate-reactive-panache:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache:2.5.0.Final'
     implementation 'io.quarkus:quarkus-hibernate-validator:2.5.0.Final'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql:2.5.0.Final'
     implementation 'io.quarkus:quarkus-smallrye-openapi:2.5.0.Final'
-    implementation 'io.quarkus:quarkus-arc:2.5.0.Final'
     implementation 'io.quarkus:quarkus-resteasy-reactive:2.5.0.Final'
     testImplementation 'io.quarkus:quarkus-junit5:2.5.0.Final'
     testImplementation 'io.rest-assured:rest-assured:4.4.0'
