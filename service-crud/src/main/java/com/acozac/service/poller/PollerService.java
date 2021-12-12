@@ -26,15 +26,14 @@ public final class PollerService
     {
         daoService.getAllServices()
             .forEach(service -> {
-                String result = pollService(service);
-                service.status = result;
+                service.status = pollService(service);
                 daoService.update(service);
             });
     }
 
     private String pollService(Service service)
     {
-        URL url = null;
+        URL url;
         try
         {
             url = new URL(service.url);
@@ -48,7 +47,7 @@ public final class PollerService
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+           logger.error("Calling url got exception: ", e);
         }
         return "FAIL";
     }
