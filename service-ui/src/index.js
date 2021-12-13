@@ -27,21 +27,24 @@ const servicesMdl = store => next => action => {
     }
     case 'SERVICES_ADD': {
       const service = action.service;
-      fetch("http://localhost:8081/api/services", {
-        method: "POST",
+      console.log(JSON.stringify(service));
+      fetch('http://localhost:8081/api/services', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(service)
+        body: JSON.stringify(service),
       })
         .then(res => res.json())
         .then(r => {
+          console.log("data is " + r);
           if (r.success) {
             service.id = r.id;
-           
             store.dispatch({ type: 'SERVICES_ADDED', service });
           }
-          console.warn(r);
+        })
+        .catch((err) => {
+          console.error("Error : " + err);
         });
       break;
     }
